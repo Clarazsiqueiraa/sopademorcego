@@ -1,0 +1,123 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(255, 250, 250);
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Impede as barras de rolagem */
+    height: 100vh; /* Altura da tela cheia */
+    display: flex;
+    flex-direction: column; /* Alinha os elementos na coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+/* Estilos do título */
+.s0 h1 {
+    font-size: 5vw; /* Ajuste dinâmico baseado na largura da tela */
+    text-align: center;
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    font-style: italic;
+    color: #000000; /* Cor do texto */
+}
+
+/* Container de botões */
+.button-container {
+    display: flex;
+    justify-content: space-evenly; /* Distribui os botões com o mesmo espaçamento */
+    gap: 20px; /* Espaço entre os botões */
+    margin-top: 20px; /* Espaçamento entre o título e os botões */
+    width: 80%; /* Largura maior para acomodar o espaço entre os botões */
+}
+
+/* Estilos dos botões */
+button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Ajuste do tamanho do padding */
+    font-size: 2vw; /* Ajuste no tamanho da fonte para tornar o botão menor */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Aumenta o botão quando o mouse passa por cima */
+button:hover {
+    background-color: #b30000;
+    transform: scale(1.1); /* Aumenta o botão ao passar o mouse */
+}
+
+/* Container para o coração */
+#heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Impede interação com o conteúdo abaixo */
+}
+
+/* Estilos do emoji de coração */
+.heart {
+    position: absolute;
+    font-size: 30px;
+    animation: fall 3s infinite ease-in;
+    user-select: none; /* Impede a seleção do emoji */
+}
+
+/* Animação de queda dos corações */
+@keyframes fall {
+    0% {
+        transform: translateY(-50px); /* Inicia acima da tela */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* Vai até o fundo da tela */
+        opacity: 0;
+    }
+}
+
+/* Responsividade para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .s0 h1 {
+        font-size: 6vw; /* Aumenta o tamanho do texto em telas pequenas */
+    }
+
+    button {
+        font-size: 5vw; /* Ajusta o tamanho da fonte dos botões */
+        padding: 5vw 8vw; /* Ajuste proporcional no tamanho dos botões */
+    }
+
+    /* Garante que os botões fiquem lado a lado */
+    .button-container {
+        flex-direction: row; /* Alinha os botões lado a lado */
+        gap: 10px; /* Menos espaçamento entre os botões */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Ajustes específicos para iPhone 13 (ou dispositivos pequenos) */
+    .s0 h1 {
+        font-size: 7vw; /* Fontes menores em telas pequenas */
+    }
+
+    .button-container {
+        flex-direction: row; /* Garante que fiquem lado a lado */
+         /* Ajuste no espaçamento entre os botões */
+        gap: 20px; /* Espaçamento entre os botões */
+    }
+
+    button {
+        font-size: 3vw; /* Fontes menores para botões */
+        padding: 2vw 3vw; /* Ajuste no tamanho dos botões */
+    }
+}
+
+#noButton {
+    position: relative; /* Permite que o botão seja movido pela propriedade left/top */
+    transition: left 0.2s ease, top 0.2s ease; /* Transição suave para o movimento */
+}
